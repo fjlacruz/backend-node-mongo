@@ -1,0 +1,41 @@
+========================================
+Creacion de REST API con Node
+
+
+Creamos una carpeta para el proyecto
+cd carpeta_proyecto
+sudo npm init
+++ se comenzara a crear el proyecto en el entry point colocar index.js y entipo de licencia MIT
+
+Instalacion de dependencias
+sudo npm install express --save
+sudo npm install body-parser --save
+sudo npm install connect-multiparty --save
+sudo npm install mysql --save
+sudo npm install mongoose --save
+
+
+package.json
+
+{
+  "name": "backendnode",
+  "version": "1.0.0",
+  "description": "Api Rest",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+  "start": "nodemon index.js"=============================> agregar esta linea para levantar el servidor
+  },
+  "author": "Javier La cruz",
+  "license": "MIT",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "connect-multiparty": "^2.2.0",
+    "express": "^4.17.1",
+    "mongoose": "^5.8.10",
+    "mysql": "^2.18.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.2"
+  }
+}

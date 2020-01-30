@@ -109,7 +109,7 @@ var controller = {
 			var fileName = fileSplit[1];
 			var extSplit = fileName.split('.');
 			var fileExt = extSplit[1];
-console.log(extSplit);
+            console.log(extSplit);
 
 			if(fileExt == 'png' || fileExt == 'jpg' || fileExt == 'jpeg' || fileExt == 'gif'){
 
