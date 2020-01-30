@@ -105,10 +105,11 @@ var controller = {
 
 		if(req.files){
 			var filePath = req.files.image.path;
-			var fileSplit = filePath.split('\\');
+			var fileSplit = filePath.split('/');
 			var fileName = fileSplit[1];
-			var extSplit = fileName.split('\.');
+			var extSplit = fileName.split('.');
 			var fileExt = extSplit[1];
+console.log(extSplit);
 
 			if(fileExt == 'png' || fileExt == 'jpg' || fileExt == 'jpeg' || fileExt == 'gif'){
 
@@ -124,7 +125,7 @@ var controller = {
 
 			}else{
 				fs.unlink(filePath, (err) => {
-					return res.status(200).send({message: 'La extensión no es válida'});
+					return res.status(200).send({message: 'La extensión no es válida.....'});
 				});
 			}
 
