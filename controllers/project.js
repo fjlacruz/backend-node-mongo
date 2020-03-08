@@ -182,6 +182,26 @@ var controller = {
         });
       }
     });
+  },
+  buscar: function(req, res) {
+    var langs = req.body.langs;
+    console.log(langs);
+
+    Project.find({ langs: langs })
+      .sort("-year")
+      .exec((err, projects) => {
+        if (err)
+          return res
+            .status(500)
+            .send({ message: "Error al devolver los datos." });
+
+        if (!projects)
+          return res
+            .status(404)
+            .send({ message: "No hay projectos que mostrar." });
+
+        return res.status(200).send({ projects });
+      });
   }
 };
 

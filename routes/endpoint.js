@@ -24,5 +24,6 @@ router.post(
 router.get("/get-image/:image", ProjectController.getImageFile);
 router.post("/imagen", multipartMiddleware, ImageController.subirImagen);
 router.get("/getImage/:image", ImageController.getImage);
+router.post("/buscar", ProjectController.buscar);
 
 module.exports = router;
