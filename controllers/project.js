@@ -7,16 +7,7 @@ var path = require("path");
 var controller = {
   home: function(req, res) {
     return res.status(200).send({
-      message: "API Node Mongo DB",
-      created_by: "Javier La Cruz",
-      version: "1.0",
-      estatus: "OK"
-    });
-  },
-
-  test: function(req, res) {
-    return res.status(200).send({
-      message: "Soy el metodo o accion test del controlador de project"
+      message: "Api Node Mongo DB"
     });
   },
 
@@ -67,8 +58,7 @@ var controller = {
     });
   },
 
-  getProjects: function(req, res, next) {
-    console.log(req);
+  getProjects: function(req, res) {
     Project.find({})
       .sort("-year")
       .exec((err, projects) => {
@@ -81,8 +71,6 @@ var controller = {
           return res
             .status(404)
             .send({ message: "No hay projectos que mostrar." });
-        // if (projects == "")
-        //   return res.send({ message: "No hay projectos que mostrar." });
 
         return res.status(200).send({ projects });
       });
@@ -142,7 +130,6 @@ var controller = {
       var fileName = fileSplit[1];
       var extSplit = fileName.split(".");
       var fileExt = extSplit[1];
-      console.log(extSplit);
 
       if (
         fileExt == "png" ||
@@ -172,9 +159,7 @@ var controller = {
         );
       } else {
         fs.unlink(filePath, err => {
-          return res
-            .status(200)
-            .send({ message: "La extensión no es válida....." });
+          return res.status(200).send({ message: "La extensión no es válida" });
         });
       }
     } else {
