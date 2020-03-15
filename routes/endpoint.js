@@ -39,4 +39,10 @@ router.post(
   [multipartMiddleware, md_auth.ensureAuth],
   UserController.uploadImage
 );
+router.get(
+  "/getImage/:image",
+  [multipartMiddleware],
+  UserController.getImageFile
+);
+
 module.exports = router;

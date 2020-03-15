@@ -65,9 +65,9 @@ var controller = {
               //devolver los datos del usuario loguaedo
               if (params.gethash) {
                 //Devolvemos un token de jwt
-                res.status(200).send({ token: jwt.createToken(user) });
+                res.status(201).send({ token: jwt.createToken(user) });
               } else {
-                res.status(200).send({ user });
+                res.status(201).send({ user });
               }
             } else {
               res
@@ -125,7 +125,7 @@ var controller = {
                 .status(404)
                 .send({ message: "No se ha podido actualizar el usuario" });
             } else {
-              res.status(201).send({ user: userUpdate });
+              res.status(201).send({ image: fileName, user: userUpdate });
             }
           }
         );
@@ -137,6 +137,18 @@ var controller = {
         .status(200)
         .send({ message: "No se ha subido la imagen....." });
     }
+  },
+  getImageFile: function(req, res) {
+    var imageFile = req.params.image;
+    var path_file = './uploads/" + imageFile';
+
+    fs.exists("./uploads/" + imageFile, function(exists) {
+      if (exists) {
+        return res.sendFile(path.resolve(path_file));
+      } else {
+        return res.status(200).send({ message: "No existe la imagen....." });
+      }
+    });
   }
 };
 
