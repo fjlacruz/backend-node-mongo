@@ -10,7 +10,7 @@ var controller = {
     var fileName = "Imagen no subida...";
 
     if (req.files) {
-      var filePath = req.files.imag.path;
+      var filePath = req.files.image.path;
       var fileSplit = filePath.split("/");
       var fileName = fileSplit[1];
       var extSplit = fileName.split(".");

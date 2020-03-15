@@ -39,3 +39,10 @@ package.json
     "nodemon": "^2.0.2"
   }
 }
+
+
+backup mongo
+sudo mongodump -d heroku_7s94w5c7 -o /var/backups/mongobackups
+
+restore mongo
+sudo mongorestore -d nombre_db /var/backups/mongobackups
