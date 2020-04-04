@@ -1,0 +1,32 @@
+GUIA MONGO DB
+sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 9DA31620334BD75D9DCB49F368818C72E52529D4
+
+echo "deb [ arch=amd64 ] https://repo.mongodb.org/apt/ubuntu bionic/mongodb-org/4.0 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-4.0.list
+
+sudo apt update
+
+sudo apt-get install -y mongodb
+
+sudo apt install mongodb-org
+
+sudo systemctl unmask mongodb
+
+sudo systemctl enable mongodb
+
+sudo systemctl start mongodb
+
+sudo systemctl status mongodb
+
+
+La configuración de MongoDB es /etc/mongod.conf. Cualquier cambio que realices en ese archivo 
+requiere un reinicio de la aplicación para funcionar.
+
+El directorio /var/log/mongodb se creó durante la instalación y es donde se ubicarán los registros de la aplicación.
+
+Finalmente, el puerto predeterminado de MongoDB es 27017.
+
+para ingresar a la consola de mongo===> mongo
+listar las bases de datos ===> show dbs
+para hacer uso de una base de datos ======> use nombre_db
+para ver las colecciones (Tablas) =====> show collections
+mostrar lista de documentos (registros) ===> db.[coleccion].find().pretty();

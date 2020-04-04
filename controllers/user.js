@@ -8,6 +8,11 @@ var fs = require("fs");
 var path = require("path");
 
 var controller = {
+  /**
+   * Guardamos los datos del nuevo usuario
+   * @param {*} req
+   * @param {*} res
+   */
   saveUser: function(req, res) {
     var user = new User();
 
